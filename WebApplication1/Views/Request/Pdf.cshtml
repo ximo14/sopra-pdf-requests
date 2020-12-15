@@ -1,0 +1,49 @@
+﻿@using WebApplication1.Models;
+@model RequestListPdfModel
+
+@{ 
+
+    RequestListPdfModel requests = Model;
+
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>PDF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="mb-5 mt-5" id="title">
+            <h2 class="text-center">Lorem ipsum dolor sit amet.</h2>
+        </div>
+
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Cognom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Estat</th>
+                    <th scope="col">Motiu denegació</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RequestPdfModel request in requests.Requests)
+                {
+                    <tr>
+                        <th scope="row">@request.Dni</th>
+                        <td>@request.Surname</td>
+                        <td>@request.Name</td>
+                        <td>@request.Status</td>
+                        <td>@request.ReasonReject</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
